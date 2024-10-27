@@ -8,3 +8,18 @@ name = "cloudfront-s3-sign"
 dependencies = [
   "cryptography", "botocore"
 ]
+
+[project.scripts]
+cfs3sign = "cfs3sign:main"
+
+[project.optional-dependencies]
+dev = [
+  "python-lsp-server[all]", 
+  "python-lsp-black"
+]
+
+[pylsp.plugins.black]
+enabled=true
+
+[tool.black]
+line-length = 79
