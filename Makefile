@@ -9,6 +9,10 @@ PROJECT_ROOT := $(dir $(lastword $(MAKEFILE_LIST)))
 clean: ## Clean the intermediate files
 	rm -rf $(PROJECT_ROOT)$(VENV)
 
+
+cloudfront_s3_sign.egg-info/requires.txt: pyproject.toml $(VENV)/bin/activate
+	pip install -e .
+
 $(VENV)/bin/activate:
 	python -m venv $(VENV)
 
